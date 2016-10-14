@@ -1,16 +1,16 @@
 import java.util.LinkedList;
 public class MergeSort implements Sorter {
-	private static int x = 0;
-	private static int y = 0;
+	private static int x;
+	private static int y;
 	private static int boundry;
 	@Override
 	public int[] location() {
 		if(boundry == 0){
 			System.out.println("Boundries have not yet been set");
 		}
-		if(x<boundry)x+=2;
+		if(x>0)x-=1;
 		else{
-			x = 0; y+=2;
+			x = boundry; y-=1;
 		}
 		return new int[]{x,y};
 	}
@@ -22,7 +22,8 @@ public class MergeSort implements Sorter {
 
 	@Override
 	public void setBoundaries(int side) {
-		boundry=side;	
+		boundry=side;
+		y = x = boundry;
 	}
 	
 }
