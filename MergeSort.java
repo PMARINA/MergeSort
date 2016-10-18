@@ -15,8 +15,10 @@ public class MergeSort implements Sorter {
 //		}
 //		return new int[]{x,y};
 //If the head is stationary, and we need to look for it
+		x = (int)(Math.random() * boundry);
+		y = (int)(Math.random() * boundry);
 		if(boundry == 0)System.out.println("Boundries have not yet been set");
-		return new int[]{(int)(Math.random() * boundry),(int)(Math.random() * boundry)};
+		return new int[]{x,y};
 	}
 
 	@Override
@@ -32,7 +34,9 @@ public class MergeSort implements Sorter {
 
 	@Override
 	public void drawSorter() {
-		// TODO Auto-generated method stub
+		StdDraw.setCanvasSize(boundry,boundry);
+		StdDraw.setPenColor();
+		StdDraw.point(x, y);
 		
 	}
 
