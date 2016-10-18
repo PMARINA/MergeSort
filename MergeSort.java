@@ -15,6 +15,7 @@ public class MergeSort implements Sorter {
 //		}
 //		return new int[]{x,y};
 //If the head is stationary, and we need to look for it
+		if(boundry == 0)System.out.println("Boundries have not yet been set");
 		return new int[]{(int)(Math.random() * boundry),(int)(Math.random() * boundry)};
 	}
 
