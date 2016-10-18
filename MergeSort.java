@@ -1,11 +1,12 @@
-import java.util.LinkedList;
+
+
 public class MergeSort implements Sorter {
 	private static int x;
 	private static int y;
 	private static int boundry;
 	@Override
 	public int[] location() {
-//If the head moves around between calls of location()
+//If the head is stationary
 //		if(boundry == 0){
 //			System.out.println("Boundries have not yet been set");
 //		}
@@ -14,7 +15,7 @@ public class MergeSort implements Sorter {
 //			x = boundry; y-=1;
 //		}
 //		return new int[]{x,y};
-//If the head is stationary, and we need to look for it
+//If the head moves around between calls of location()
 		x = (int)(Math.random() * boundry);
 		y = (int)(Math.random() * boundry);
 		if(boundry == 0)System.out.println("Boundries have not yet been set");
