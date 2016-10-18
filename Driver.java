@@ -39,6 +39,7 @@ public class Driver {
 				.pow(Circle.getRadius() + Circle.getRadius(), 2);
 	}
 
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 		StdDraw.setScale(-10, 10);
 		Player a = new Player(0, 0);

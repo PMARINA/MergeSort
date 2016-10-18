@@ -17,7 +17,7 @@ public class MergeSort implements Sorter {
 
 	@Override
 	public LinkedList sort(LinkedList aList) {
-		
+		return null;
 	}
 
 	@Override

@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 /**
  * Interface to be implemented by each of the Sorters
  */
