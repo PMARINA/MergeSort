@@ -1,5 +1,3 @@
-import java.util.LinkedList;
-
 /**
  * Interface to be implemented by each of the Sorters
  */
@@ -12,6 +10,18 @@ public interface Sorter
      * Location should change each time its called
      */
     public int[] location();
+    
+    /**
+     * method that will be called by the Driver class consecutively after the location() method above
+     * the Sorter must use the StdDraw libraries to display it's location as it looks for the head in the frame of the LinkedList representation
+     */
+    public void drawSorter();
+    
+    /**
+     * method that will be called by the Driver class after the LinkedList has been sorted
+     * should display the pictographic representation of the sorted LinkedList
+     */
+    public void drawFinal();
     
     /**
      * will be called by the Driver when the Sorter "hits" the head in the first part of the game
