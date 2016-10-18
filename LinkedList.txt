@@ -44,7 +44,7 @@ public int setOffset(int x, int y)
 public void swapNodes(int x1, int y1, int x2, int y2)
 
 /**
-*returns the section of modernArt that val represents
+*returns the section of modernArt that val represents.
 */
 
 public BufferedImage getSection(int val)
