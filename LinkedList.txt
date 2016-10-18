@@ -1,56 +1,73 @@
-import java.awt.Graphics
-import java.awt.image.BufferedImage
+Tokens Public Interface
 
-public class LinkedList {
-	/**
-    * Takes a 2D array of ints and creates a linked list with the following properties:
-    * for any node H representing boi[x][y]:
-    * H.right = the node representing boi[x+1][y].
-    * H.down = the node representing boi[x][y+1].
-    * topleft is the head node at position (offsetX, offsetY)
-    */
-    public void link(int[][] boi)
+Class: LinkedList
+________________________________________________________
+private Node topleft
+private int offsetX
+private int offsetY
+private BufferedImage[][] modernArt
 
-	/**
-    *returns the num value of the node at position (x,y)
-    */
-    public int getNum(int x, int y)
+/**
+*constructor that takes a 2D BufferedImage array and stores it as modernArt.
+*also creates a JFrame and adds itself to the JFrame
+*/
+public LinkedList(String filename, int N)
 
-	/**
-    *returns the Node at position (x,y)
-    */
-    public Node getTo(int y, int x)
+/**
+* Takes a 2D array of ints and creates a linked list with the following properties:
+* for any node H representing boi[x][y]:
+* H.right = the node representing boi[x+1][y].
+* H.down = the node representing boi[x][y+1].
+* topleft is the head node at position (offsetX, offsetY)
+*/
+public void link(int[][] boi)
 
-	/**
-    *sets how much the nodes will be offset in each direction
-    */
-    public int setOffset(int x, int y)
+/**
+*returns the num value of the node at position (x,y)
+*/
+public int getNum(int x, int y)
 
-	/**
-    *swaps the num values of the nodes at coordinates (x1,y1) and (x2,y2)
-    *does not take into account the offset. this may change in later implementations, depending on if the sorters use this method
-    */
-    public void swapNodes(int x1, int y1, int x2, int y2)
+/**
+*returns the Node at position (x,y)
+*/
+public Node getTo(int y, int x)
 
-	/**
-    *returns the section of modernArt that val represents
-    */
+/**
+*sets how much the nodes will be offset in each direction
+*/
+public int setOffset(int x, int y)
 
-    public BufferedImage getSection(int val)
+/**
+*swaps the num values of the nodes at coordinates (x1,y1) and (x2,y2)
+*does not take into account the offset. this may change in later implementations, depending on if the sorters use this method
+*/
+public void swapNodes(int x1, int y1, int x2, int y2)
 
-	/**
-    *to be called when the JFrame draws the images
-    */
-    public void paintComponent(Graphics g)
+/**
+*returns the section of modernArt that val represents
+*/
 
-	/**
-    *draws a single frame of animation. this method should be followed by Thread.sleep(10) and the main method should
-    *throw InterruptedException
-    */
-    public void animate()
+public BufferedImage getSection(int val)
 
-	/**
-    *swaps around the values inside the nodes randomly
-    */
-    public void randomize()
-}
+/**
+*to be called when the JFrame draws the images
+*/
+public void paintComponent(Graphics g)
+
+
+/**
+*draws a single frame of animation. this method should be followed by Thread.sleep(10) and the main method should
+*throw InterruptedException
+*/
+public void animate()
+
+
+/**
+*swaps around the values inside the nodes randomly
+*/
+public void randomize()
+
+/**
+*divides a BufferedImage into NxN sections, each its own BufferedImage and all returned in a 2D array
+*/
+public static BufferedImage divide(BufferedImage boi, int N)
