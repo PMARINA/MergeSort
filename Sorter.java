@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package org.phs.princetonk12.simran.projects.oct18.group;
 
 import java.util.LinkedList;
@@ -25,4 +26,15 @@ public interface Sorter {
    * this method will be called prior to any location call
    */
   public void setBoundaries(int side);
+=======
+package org.phs.princetonk12.simran.projects.oct18.sorter;
+
+
+public interface Sorter {
+  // get The HEAD of the unsorted Array
+  public Token getHead();
+  
+  // sort the unsorted Array, given the HEAD
+  public Token[] sort(Token HEAD);
+>>>>>>> a890ee1a03ecdd2c42d5786d6cac53c9d392536f
 }
