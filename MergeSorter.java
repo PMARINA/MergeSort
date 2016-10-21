@@ -1,7 +1,4 @@
-package org.phs.princetonk12.simran.projects.oct18.group;
 
-import java.util.LinkedList;
-import java.util.Random;
 
 
 public class MergeSorter implements Sorter {
@@ -155,8 +152,14 @@ public class MergeSorter implements Sorter {
 
   @Override
   public void drawSorter() {
-    // TODO Auto-generated method stub
-    
+	  int x = xyCell.length;
+	  int y = xyCell[xyCell.length-1].length;
+	  for(int i=0;i <y; i++){
+		  for(int j = 0; j<x;j++){
+			  StdDraw.setPenColor(new Color(xyCell[j][i],xyCell[j][i],xyCell[j][i]));
+			  StdDraw.filledSquare(i, j, 0.5);
+		  }
+	  }
   }
   
   
