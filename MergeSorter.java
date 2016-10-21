@@ -1,10 +1,15 @@
 
+import java.awt.Color;
+import java.util.LinkedList;
+import java.util.Random;
 
+import StdLibraries.StdDraw;
 
-public class MergeSorter implements Sorter {
+public class MergeSort implements Sorter {
   
   private int side;
-  private XYCell[][] xyCell;
+  private Integer[][] food = {{0,100,174,230}};
+  private boolean[][] xyCell;
   
   private Random random = new Random();
   private int numCellVisited;
@@ -33,10 +38,9 @@ public class MergeSorter implements Sorter {
     do {
       xrandom = random.nextInt(side);
       yrandom = random.nextInt(side);
-    } while (xyCell[xrandom][yrandom].visited);
+    } while (!xyCell[xrandom][yrandom]);
     
-    xyCell[xrandom][yrandom] = new XYCell();
-    xyCell[xrandom][yrandom].visited = true;
+    xyCell[xrandom][yrandom]= true;
     
     int[] ret = new int[2];
     ret[0] = xrandom;
@@ -52,12 +56,12 @@ public class MergeSorter implements Sorter {
    * provides the sorter with the head of the linked list that they are to sort
    * the method should then sort the LinkedList in ascending order and return the sorted Integers as a LinkedList upon completion
    */
-  @Override
-  public LinkedList<Token> sort(LinkedList<Token> aList) {
-    // TODO Auto-generated method stub
+
+ /* public LinkedList<Token> sort(LinkedList<Token> aList) {
+	food = aList.toArray();
     new Mergesort().sort(aList);
     return aList;
-  }
+  } */
 
   /**
    * method that provides the Sorter with the length and width of the coordinate plot through the variable side as it is a square
@@ -66,28 +70,18 @@ public class MergeSorter implements Sorter {
    * 0 <= y < side
    * this method will be called prior to any location call
    */
-  @Override
+ // @Override
   public void setBoundaries(int side) {
     this.side = side;
     numCellVisited = 0;
-    xyCell = new XYCell[side][];
+    xyCell = new boolean[side][];
     
     for (int i=0; i<side; i++){
-      xyCell[i] = new XYCell[side];
-    }
-    
-    for (int x=0; x < side; x++) {
-      for (int y=0; y < side; y++) {
-        xyCell[x][y] = new XYCell();
-      }
+      xyCell[i] = new boolean[side];
     }
   }
   
-  public class XYCell {
-    
-    private boolean visited;
-    
-  }
+
   
   public class Mergesort {
     private LinkedList<Token> tokens;
@@ -98,7 +92,7 @@ public class MergeSorter implements Sorter {
     public void sort(LinkedList<Token> values) {
       this.tokens = values;
       numTokens = values.size();
-      this.helper = new LinkedList<>();
+      this.helper = new LinkedList();
       mergesort(0, numTokens - 1);
     }
 
@@ -152,14 +146,20 @@ public class MergeSorter implements Sorter {
 
   @Override
   public void drawSorter() {
-	  int x = xyCell.length;
-	  int y = xyCell[xyCell.length-1].length;
+	  int x = food.length;
+	  int y = food[food.length-1].length;
 	  for(int i=0;i <y; i++){
 		  for(int j = 0; j<x;j++){
-			  StdDraw.setPenColor(new Color(xyCell[j][i],xyCell[j][i],xyCell[j][i]));
+			  StdDraw.setPenColor(new Color(food[j][i],food[j][i],food[j][i]));
 			  StdDraw.filledSquare(i, j, 0.5);
 		  }
 	  }
+  }
+  public static void main(String[] args){
+	  MergeSort a = new MergeSort();
+	  StdDraw.setYscale(0,0.5);
+	  StdDraw.setXscale(-.5, a.food[0].length-0.5);
+	  a.drawSorter();
   }
   
   
