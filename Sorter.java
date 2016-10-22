@@ -1,5 +1,3 @@
-package org.phs.princetonk12.simran.projects.oct18.group;
-
 import java.util.LinkedList;
 
 public interface Sorter {
