@@ -15,7 +15,7 @@ public class MergeSort {
 	private int side;
 	private Integer[][] food;
 	private boolean[][] xyCell;
-
+	private int[] thing = new int[2];
 	private Random random = new Random();
 	private int numCellVisited;
 
@@ -40,7 +40,7 @@ public class MergeSort {
 
 		int xrandom = -1;
 		int yrandom = -1;
-
+		
 		// do not give a cell that has already been visited
 		do {
 			xrandom = random.nextInt(side);
@@ -52,7 +52,7 @@ public class MergeSort {
 		int[] ret = new int[2];
 		ret[0] = xrandom;
 		ret[1] = yrandom;
-
+		thing = ret;
 		numCellVisited++;
 
 		return ret;
@@ -160,7 +160,7 @@ public class MergeSort {
 		}
 	}
 
-	public void drawSorter() {
+	public void drawFinal() {
 		int y = food.length;
 		int x = food[food.length - 1].length;
 		double max = Double.MIN_VALUE;
@@ -182,6 +182,9 @@ public class MergeSort {
 				StdDraw.filledSquare(j + 0.5, i + 0.5, 0.5);
 			}
 		}
+	}
+	public void drawSorter(){
+		StdDraw.point(thing[0],thing[1]);	
 	}
 
 
